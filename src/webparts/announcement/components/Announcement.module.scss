@@ -1,0 +1,331 @@
+// .container {
+//   font-family: 'Segoe UI';
+//   display: flex;
+//   height: auto;
+//   width: 100%;
+//   //gap: 14px;
+//   background-color: #ffff;
+//   display: flex;
+//  // padding: 10px;
+//   flex-wrap: wrap;
+//   align-items: center;
+//   border-radius: 5px;
+//   justify-content: space-between;
+//   margin: 15px;
+
+//   .link {
+//     width: 900px;
+//     color: #000;
+//     background-color: #cac5c5;
+// //  padding: 16px 20px 16px 20px;
+//   margin-bottom: 5px;
+//     height: 150px;
+//     width: 49%;
+//     border-radius: 4px;
+//     justify-content: left;
+//     align-items: start;
+//     display: flex;
+//     gap: 17px;
+//     font-family: cursive;
+//     //overflow: scroll;
+//     a {
+//       color: #000;
+//       text-decoration: none;
+//       font-family: 'segoe ui';
+//     }
+
+//   }
+//   .ImgContainer{
+//     width: 30%;
+//     height: 100%;
+//     img {
+//       background-color: #ffff;
+//     height: 100%;
+//     width: 100%;
+//     border-radius: 5px 0 0 5px;
+//     padding: 0px;
+
+//     }
+//   }
+
+// }
+// .webPartTitle{
+//   border-left: 3px solid red;
+//   padding: 16px;
+// }
+// .Header{
+//   display: flex;
+//   justify-content: space-between;
+// }
+.Container {
+  width: 100%;
+  padding: 0px 15px;
+  .headerContainer {
+    // background-color: #ccc;
+    border-left: 4px solid red;
+    margin-bottom: 10px;
+    padding: 10px;
+
+    .headerSection {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p {
+        margin: 0;
+        font-size: 16px;
+        color: #3a3e43;
+        font-weight: 600;
+      }
+      img {
+        cursor: pointer;
+      }
+
+      // padding: 10px;
+    }
+  }
+
+  .imgContainer {
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+
+    .imgwrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      // justify-content: space-between;
+      .imgsplit {
+        width: 49%;
+        display: flex;
+        height: 170px;
+        cursor: pointer;
+
+        .imgsection {
+          width: 30%;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+            border-radius: 6px 0px 0px 6px;
+          }
+        }
+        .detail {
+          width: 70%;
+          background: #f3f3f3;
+          padding: 10px;
+          border-radius: 0px 6px 6px 0px;
+
+          h5 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 900;
+          }
+          p {
+            // margin: 0;
+
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 6;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+  .moreiconContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 10px 0px 0px;
+
+    .moreiconSection {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      gap: 10px;
+
+      p {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+        color: #ff1721;
+      }
+      img {
+        cursor: pointer;
+      }
+      &:hover::after {
+        content: "";
+        position: absolute;
+        bottom: 1px; /* Adjust based on your design */
+        left: 0;
+        width: 100%;
+        height: 1px; /* Adjust based on your design */
+        background-color: #ff1721;
+      }
+    }
+  }
+}
+.AnnounceContainer {
+  width: 100%;
+  background: #fff;
+  padding: 10px 20px;
+  .arrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // padding: 10px 20px;
+
+    margin: 10px 0px;
+    img {
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+    }
+  }
+
+  .imagetitlecontainer {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .title {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px 15px;
+    // text-align: center;
+    font-size: 20px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .imagecontainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .imagecontainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .selectedContent {
+    width: 70%;
+    margin: 40px auto;
+    .content {
+      color: #5f5f5f;
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
+}
+
+.announceDialog {
+  width: 100% !important;
+  max-height: 100% !important;
+  height: 100% !important;
+}
+
+@media screen and (max-width: 768px) {
+  .Container {
+    .imgContainer {
+      padding: 0 !important;
+      .imgwrapper {
+        .imgsplit {
+          width: 100% !important;
+          display: block;
+          height: unset !important;
+          .imgsection {
+            width: 100% !important;
+            img {
+              border-radius: 6px !important;
+            }
+          }
+          .detail {
+            width: 100% !important;
+            border-radius: 6px !important;
+          }
+        }
+      }
+    }
+  }
+  .announceDialog {
+    width: 90% !important;
+  }
+
+  .AnnounceContainer {
+    width: 100%;
+    background: #fff;
+    padding: 0px 0px;
+    .arrow {
+      cursor: pointer;
+      margin: 10px 0px;
+    }
+
+    .imagetitlecontainer {
+      position: relative;
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .title {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 20px 15px;
+      // text-align: center;
+      font-size: 20px;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .imagecontainer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .imagecontainer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .selectedContent {
+      width: 100%;
+      margin: 0;
+      padding: 10px;
+      // margin: 10px ;
+      .content {
+        color: #5f5f5f;
+        font-weight: 500;
+        font-size: 14px;
+      }
+    }
+  }
+}

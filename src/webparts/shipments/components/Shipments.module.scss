@@ -1,0 +1,442 @@
+.shipmentContainer {
+  // background-color: #cccc;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  padding: 10px 20px;
+
+  .calenderSection {
+    width: 40%;
+    .calendarContainer {
+      // width: 420px;
+      border-radius: 6px;
+      box-shadow: 9.49px 3.56px 26.08px 11.86px rgba(150, 150, 150, 0.11);
+    }
+    .ETATitle {
+      border-left: 4px solid #ff1721;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #3a3e43;
+      margin-bottom: 20px;
+    }
+  }
+
+  .loadingStyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+  }
+  .shipmentSection {
+    width: 60%;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-left: 4px solid #ff1721;
+      .selectShipData {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        p {
+          margin: 0;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        i {
+          cursor: pointer;
+        }
+      }
+
+      .headerSection {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        img {
+          cursor: pointer;
+        }
+        .searchField {
+          width: 200px;
+          padding: 5px 30px;
+          background: #f5f7fa;
+          border: 1px solid #f5f7fa;
+        }
+        .button {
+          width: 100px;
+          border: none !important;
+          padding: 5px 10px;
+          border-radius: 4px;
+          background-color: red !important;
+          color: "white";
+        }
+      }
+    }
+
+    .contentSection {
+      margin: 10px 0px 0px 0px;
+      max-height: 386px;
+      overflow-y: auto;
+
+      .contentBox {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        padding: 15px;
+        border-left: 5px solid #ff1721;
+        margin-bottom: 20px;
+        .ContentContainer {
+          display: flex;
+          gap: 15px;
+          .leftSection {
+            width: 40%;
+            cursor: pointer;
+
+            .purchaseOrderList {
+              max-height: calc(3 * 1.7em);
+              overflow-y: auto;
+
+              .purchaseOrderRow {
+                margin-bottom: 4px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 300px;
+                span {
+                  color: #8a8a8a;
+                  font-weight: 600;
+                  font-size: 14px;
+                  letter-spacing: 0.59;
+                }
+              }
+            }
+            // .containerName {
+            //   margin: 0px 0px 5px 0px;
+            //   color: #8a8a8a;
+            //   font-weight: 600;
+            //   font-size: 14px;
+            //   letter-spacing: 0.59;
+            // font-family: interRegular,sans-serif;
+            .containerNumber {
+              color: #ff1721;
+              font-weight: 600;
+              font-size: 15px;
+              letter-spacing: 0.59;
+            }
+            // }
+            .containersizeContainer {
+              display: flex;
+              gap: 10px;
+              align-items: center;
+
+              p {
+                margin: 0;
+                color: #3a3e43;
+                font-weight: 600;
+                font-size: 16px;
+              }
+            }
+            .ETA {
+              color: #ff1721;
+
+              margin: 10px 0px 0px 0px;
+              font-weight: 500;
+              font-size: 14px;
+              span {
+                color: #3a3e43;
+
+                margin-left: 6px;
+              }
+            }
+          }
+          .rightSection {
+            width: 60%;
+
+            .progressContainer {
+              width: 100%; /* Ensure the progress container spans the full width */
+            }
+
+            .progressBar {
+              position: relative;
+              height: 3px;
+              background-color: #e0e0e0;
+              margin: 10px 0px;
+            }
+
+            .progressFill {
+              height: 100%;
+              background-color: #0078d4;
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+
+            .progressImage {
+              width: 20px;
+              position: absolute;
+              top: -8px;
+              border: 3px solid #0078d4;
+              border-radius: 50%;
+              padding: 2px;
+              background-color: #ffffff;
+            }
+
+            .locations {
+              display: flex;
+              justify-content: space-between;
+              font-size: 14px;
+              margin: 0px 0px 20px 0px;
+              span {
+                font-family: "interRegular", sans-serif;
+                font-size: 14px;
+                color: #8a8a8a;
+                font-weight: 600;
+                letter-spacing: 0.59px;
+              }
+            }
+
+            .startPoint,
+            .endPoint,
+            .progressPoint {
+              position: absolute;
+              top: -8px; /* Adjust based on circle size */
+              width: 16px;
+              height: 16px;
+              border-radius: 50%;
+              background-color: #e0e0e0;
+              // border: 2px solid #e0e0e0;
+            }
+
+            .filled {
+              background-color: #0078d4;
+            }
+
+            .startPoint {
+              left: -2px;
+            }
+
+            .endPoint {
+              right: -2px;
+            }
+
+            .progressPoint {
+              transform: translateX(-50%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.addnewDialog {
+  width: 40% !important;
+  .dialogcontainer {
+    .addnewHeader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      display: 5px;
+      margin: 10px 0px 30px 0px;
+      p {
+        margin: 0;
+        font-size: 17px;
+        font-weight: 600;
+        color: #ff1721;
+      }
+      span {
+        border-bottom: 3px solid #ff1721;
+        width: 35%;
+      }
+    }
+    .textfieldContainer {
+      width: 100%;
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      .textBox {
+        width: 50%;
+        label {
+          width: 100%;
+          color: #262f39;
+          font-size: 15px;
+          display: inline-block;
+          margin: 0px 0px 4px 0px;
+        }
+      }
+    }
+    .buttonContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin: 20px 0px 0px 0px;
+      .cancelButton {
+        width: 150px;
+        background-color: #b9b9b9;
+        border-radius: 8px;
+        border: 1px solid #b9b9b9;
+      }
+      .saveButton {
+        background-color: #ff1721;
+        width: 150px;
+        border-radius: 8px;
+        border: 1px solid #ff1721;
+      }
+    }
+  }
+}
+
+.timelineDialog {
+  width: 60% !important;
+  div {
+    .timelineContainer {
+      text-align: center;
+      margin: 0px 0px 10px 0px;
+      p {
+        margin: 0;
+        color: #ff1721;
+        font-size: 14px;
+        font-weight: 600;
+        span {
+          color: #3a3e43;
+          margin-left: 5px;
+        }
+      }
+    }
+    .customizedMarkerspan {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ff1721;
+      border: 1px solid #ff1721;
+    }
+    .customizedMarkerspan1 {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid #ff1721;
+    }
+
+    .customcontent {
+      display: flex;
+      margin: 5px 0px 8px 0px;
+      .content {
+        width: 70%;
+      }
+      .subcontent {
+        width: 30%;
+      }
+    }
+  }
+}
+.apiDialog {
+  width: 35% !important;
+}
+
+// responsive
+
+@media screen and (max-width: 768px) {
+  .shipmentContainer {
+    // width: 100%;
+    display: block;
+    padding: 10px;
+    .calenderSection {
+      width: 100%;
+      margin: 0px 0px 20px 0px;
+    }
+    .shipmentSection {
+      width: 100%;
+      .header {
+        display: block;
+        .headerSection {
+          justify-content: end;
+          margin-top: 15px;
+        }
+      }
+      .contentSection {
+        .contentBox {
+          .ContentContainer {
+            display: block;
+
+            .leftSection {
+              width: 100%;
+              margin-bottom: 10px;
+            }
+            .rightSection {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .addnewDialog {
+    width: fit-content !important;
+    .dialogcontainer {
+      .textfieldContainer {
+        display: block;
+        .textBox {
+          width: 100%;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+  .timelineDialog {
+    width: 90% !important;
+    .customcontent {
+      display: flex;
+      .content {
+        width: 60% !important;
+      }
+      .subcontent {
+        width: 36% !important;
+        text-wrap: wrap;
+      }
+    }
+  }
+  .apiDialog {
+    width: 80% !important;
+  }
+}
+
+//progressbar
+
+// .progressContainer {
+//   width: 100%; /* Ensure the progress container spans the full width */
+// }
+
+// .progressBar {
+//   position: relative;
+//   height: 4px;
+//   background-color: #e0e0e0;
+//   margin-bottom: 10px;
+// }
+
+// .progressFill {
+//   height: 100%;
+//   background-color: #4caf50;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+// }
+
+// .progressImage {
+//   width: 20px;
+//   position: absolute;
+//   top: -3px; /* Adjust based on image height */
+// }
+
+// .locations {
+//   display: flex;
+//   justify-content: space-between;
+//   font-size: 14px;
+//   margin: 0px 0px 10px 0px;
+
+//   // margin-top: 5px;
+// }
+
+//new progress bar

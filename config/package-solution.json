@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "achaulien-latest-client-side-solution",
+    "id": "84a1e11f-3528-4178-b3e3-2ae7ee8c8961",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.18.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Achaulien-latest description"
+      },
+      "longDescription": {
+        "default": "Achaulien-latest description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "achaulien-latest Feature",
+        "description": "The feature that activates elements of the achaulien-latest solution.",
+        "id": "f7d459c5-9b04-44c3-a479-7c66ea060075",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/achaulien-latest.sppkg"
+  }
+}

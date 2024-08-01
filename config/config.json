@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "carousel-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/carousel/CarouselWebPart.js",
+          "manifest": "./src/webparts/carousel/CarouselWebPart.manifest.json"
+        }
+      ]
+    },
+    "quick-links-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/quickLinks/QuickLinksWebPart.js",
+          "manifest": "./src/webparts/quickLinks/QuickLinksWebPart.manifest.json"
+        }
+      ]
+    },
+    "announcement-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/announcement/AnnouncementWebPart.js",
+          "manifest": "./src/webparts/announcement/AnnouncementWebPart.manifest.json"
+        }
+      ]
+    },
+    "faq-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/faq/FaqWebPart.js",
+          "manifest": "./src/webparts/faq/FaqWebPart.manifest.json"
+        }
+      ]
+    },
+    "shipments-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/shipments/ShipmentsWebPart.js",
+          "manifest": "./src/webparts/shipments/ShipmentsWebPart.manifest.json"
+        }
+      ]
+    },
+    "all-announcement-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/allAnnouncement/AllAnnouncementWebPart.js",
+          "manifest": "./src/webparts/allAnnouncement/AllAnnouncementWebPart.manifest.json"
+        }
+      ]
+    },
+    "footer-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/footer/FooterWebPart.js",
+          "manifest": "./src/webparts/footer/FooterWebPart.manifest.json"
+        }
+      ]
+    },
+    "announcement-view-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/announcementView/AnnouncementViewWebPart.js",
+          "manifest": "./src/webparts/announcementView/AnnouncementViewWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CarouselWebPartStrings": "lib/webparts/carousel/loc/{locale}.js",
+    "QuickLinksWebPartStrings": "lib/webparts/quickLinks/loc/{locale}.js",
+    "AnnouncementWebPartStrings": "lib/webparts/announcement/loc/{locale}.js",
+    "FaqWebPartStrings": "lib/webparts/faq/loc/{locale}.js",
+    "ShipmentsWebPartStrings": "lib/webparts/shipments/loc/{locale}.js",
+    "AllAnnouncementWebPartStrings": "lib/webparts/allAnnouncement/loc/{locale}.js",
+    "FooterWebPartStrings": "lib/webparts/footer/loc/{locale}.js",
+    "AnnouncementViewWebPartStrings": "lib/webparts/announcementView/loc/{locale}.js"
+  }
+}

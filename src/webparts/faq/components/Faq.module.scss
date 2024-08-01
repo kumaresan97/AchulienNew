@@ -1,0 +1,142 @@
+.container {
+  width: 100%;
+  padding: 0px 15px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h5 {
+      font-size: 16px;
+      color: #ff1721;
+      border-bottom: 2px solid;
+    }
+    .search {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      img {
+        cursor: pointer;
+      }
+      .muldropdown {
+        width: 250px !important;
+      }
+    }
+  }
+
+  .selectedtags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chip {
+    display: flex;
+    align-items: center;
+    background-color: #e0e0e0;
+    border-radius: 16px;
+    padding: 0px 12px;
+    // border: 1px solid #ccc;
+    font-size: 14px;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .chiplabel {
+    margin-right: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .chipremove {
+    cursor: pointer;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 50%;
+    padding: 4px;
+    display: inline-flex;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+
+    // &:hover {
+    //   background-color: #ffdddd; // Background color on hover
+    // }
+  }
+}
+.card {
+  width: 100%;
+  background: #fff;
+  padding: 20px 50px;
+  .customHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .PlusIcon {
+      width: 32px !important;
+      height: 32px !important;
+      background-color: #f7f7ff;
+      color: #3a3e43;
+      border-radius: 8px !important;
+      padding: 5px 8px !important;
+      border: 1px solid #f7f7ff !important;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 100% !important;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      h5 {
+        font-size: 14px;
+        color: #ff1721;
+        border-bottom: 2px solid;
+      }
+      .search {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        img {
+          cursor: pointer;
+        }
+        .muldropdown {
+          width: 250px !important;
+        }
+      }
+    }
+  }
+  .card {
+    padding: 0px !important;
+    .customHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .PlusIcon {
+        width: 32px !important;
+        height: 32px !important;
+        background-color: #f7f7ff;
+        color: #3a3e43;
+        border-radius: 8px !important;
+        padding: 5px 8px !important;
+        border: 1px solid #f7f7ff !important;
+      }
+    }
+  }
+}
