@@ -926,10 +926,18 @@ const Maincomponent = (props: any) => {
                                     polActual={
                                       attachment.AttachmentFiles.data.route.pol
                                         .actual
+                                        ? attachment.AttachmentFiles.data.route
+                                            .pol.actual
+                                        : attachment.AttachmentFiles.data.route
+                                            .prepol.actual
                                     }
                                     podActual={
                                       attachment.AttachmentFiles.data.route.pod
                                         .actual
+                                        ? attachment.AttachmentFiles.data.route
+                                            .pod.actual
+                                        : attachment.AttachmentFiles.data.route
+                                            .postpod.actual
                                     }
                                   />
                                 </>
