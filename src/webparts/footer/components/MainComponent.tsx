@@ -1,11 +1,19 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 import * as React from "react";
-let img1: any = require("../../Global/Images/logo.svg");
-let img2: any = require("../../Global/Images/Logo1.svg");
-let img3: any = require("../../Global/Images/image1.svg");
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPinterestSquare,
+  faSquareFacebook,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+
+// let InstagramImg: any = require("../../Global/Images/logo.svg");
+// let facebookImg: any = require("../../Global/Images/Logo1.svg");
+let CompanyLogo: any = require("../../Global/Images/CompanyLogo.png");
+
 // let img4: any = require("../../Global/Images/image2.svg");
-let img5: any = require("../../Global/Images/logo2.svg");
+// let pininterestImg: any = require("../../Global/Images/logo2.svg");
 import styles from "./Footer.module.scss";
 import "../../Global/Style.css";
 const Maincomponent = () => {
@@ -24,40 +32,71 @@ const Maincomponent = () => {
     <div>
       <div className={styles.footerContainer}>
         <div className={styles.fullviewSection}>
-          <div>
-            <img src={`${img3}`} alt="" />
+          <div className={styles.Companylogo}>
+            <img src={`${CompanyLogo}`} alt="" />
           </div>
           <div className={styles.copyRights}>
             <p> &copy; 2024 A Chau Lien -All rights reserved.</p>
           </div>
           <div className={styles.socialLinks}>
-            <img
-              src={`${img1}`}
+            {/* <img
+              src={`${InstagramImg}`}
               alt=""
               title={"instagram"}
               style={{ cursor: "pointer" }}
               onClick={() => {
                 window.open("https://www.instagram.com/achau_lien/");
               }}
+            /> */}
+
+            <FontAwesomeIcon
+              icon={faSquareFacebook}
+              title="facebook"
+              className={styles.iconStyle}
+              // style={{ color: "#ffffff", fontSize: "2.2em", cursor: "pointer" }}
+              onClick={() => {
+                window.open("https://www.facebook.com/achaulien");
+              }}
             />
-            <img
-              src={`${img2}`}
+            {/* <img
+              src={`${facebookImg}`}
               alt=""
               style={{ cursor: "pointer" }}
               title={"facebook"}
               onClick={() => {
                 window.open("https://www.facebook.com/achaulien");
               }}
+            /> */}
+
+            <FontAwesomeIcon
+              title={"instagram"}
+              icon={faInstagram}
+              className={styles.iconStyle}
+              // style={{ color: "#ffffff", fontSize: "2.2em", cursor: "pointer" }}
+              onClick={() => {
+                window.open("https://www.instagram.com/achau_lien/");
+              }}
             />
-            <img
-              src={`${img5}`}
+
+            <FontAwesomeIcon
+              title="Pinterest"
+              className={styles.iconStyle}
+              icon={faPinterestSquare}
+              // style={{ color: "#ffffff", fontSize: "2.2em", cursor: "pointer" }}
+              onClick={() => {
+                window.open("https://se.pinterest.com/achau_lien/");
+              }}
+            />
+
+            {/* <img
+              src={`${pininterestImg}`}
               alt=""
               title={"pinterest"}
               style={{ cursor: "pointer" }}
               onClick={() => {
                 window.open("https://se.pinterest.com/achau_lien/");
               }}
-            />
+            /> */}
           </div>
         </div>
         {/* <>

@@ -1,10 +1,41 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/no-use-before-define */
+
 import * as moment from "moment";
 import * as React from "react";
 import { Timeline } from "primereact/timeline";
-import styles from "./Shipments.module.scss";
+import styles from "./AllShipments.module.scss";
+const shipImg: any = require("../../Global/Images/Ship.png");
+
+interface IPurchaseOrder {
+  content: string;
+}
 
 const TimelineComponent = ({ Attachment, setIsPopup }: any) => {
   const [events, setEvents] = React.useState(null);
+
+  const parsePurchaseOrders = (combinedString: string): IPurchaseOrder[] => {
+    // const rows = combinedString.match(
+    //   /\d+\s*[·∙]\s*[^·∙]+?(?=\d+\s*[·∙]\s*|$)/g
+    // );
+
+    // const rows = combinedString.match(
+    //   /\d+\s*[-.]\s*[^-.]+?(?=\d+\s*[-.]\s*|$)/g
+    // );
+
+    // const rows = combinedString.match(/\d+\s*[-,.]\s*[^-.,\d]+/g);
+
+    // const rows = combinedString.match(/\d+\s*[-,.∙]\s*[^-.,∙\d]+/g);
+
+    const rows = combinedString?.match(
+      /\d+\s*[·∙,.-]\s*.+?(?=\d+\s*[·∙,.-]\s*|$)/g
+    );
+
+    return rows ? rows.map((row) => ({ content: row.trim() })) : [];
+  };
 
   const parseData = (data: any) => {
     let groupedEvents: any = {};
@@ -69,29 +100,22 @@ const TimelineComponent = ({ Attachment, setIsPopup }: any) => {
       });
     });
 
-    //Sort events by date within each location
-    // for (let location in groupedEvents) {
-    //   groupedEvents[location].sort(
-    //     (a: any, b: any) =>
-    //       new Date(a.date).getTime() - new Date(b.date).getTime()
-    //   );
-    // }
-
-    Object.keys(groupedEvents).forEach((location) => {
-      groupedEvents[location].sort(
-        (a: any, b: any) =>
-          new Date(a.date).getTime() - new Date(b.date).getTime()
-      );
-    });
+    // Sort events by date within each location
+    for (let location in groupedEvents) {
+      if (location) {
+        groupedEvents[location].sort(
+          (a: any, b: any) =>
+            new Date(a.date).getTime() - new Date(b.date).getTime()
+        );
+      }
+    }
 
     return groupedEvents;
-
-    // return groupedEvents;
   };
   const customizedMarker = (item: any) => {
     const events = item[1];
 
-    const reachedEvent = events?.find((event: any) => event.actual);
+    const reachedEvent = events.find((event: any) => event.actual);
 
     if (reachedEvent) {
       return (
@@ -123,7 +147,8 @@ const TimelineComponent = ({ Attachment, setIsPopup }: any) => {
         >
           {locationName}
         </h3>
-        {events?.map((event: any, index: any) => (
+
+        {events.map((event: any, index: any) => (
           <div key={index}>
             <div className={styles.customcontent}>
               <p
@@ -163,6 +188,50 @@ const TimelineComponent = ({ Attachment, setIsPopup }: any) => {
           </span>
         </p>
       </div>
+
+      <div className={styles.timelineContentSection}>
+        <div className={styles.purchaseOrderList}>
+          {parsePurchaseOrders(Attachment?.Containername)?.map((po, index) => (
+            <div
+              key={index}
+              title={po?.content}
+              className={styles.purchaseOrderRow}
+            >
+              <span>{po?.content}</span>
+            </div>
+          ))}
+        </div>
+
+        <span className={styles.containerNumber}>
+          {Attachment.AttachmentFiles.data.metadata.number || ""}
+        </span>
+        {/* <p className={styles.containerName}>
+                                  {attachment?.Containername} -{" "}
+                                  <span className={styles.containerNumber}>
+                                    {container.number}
+                                  </span>
+                                </p> */}
+        <div className={styles.containersizeContainer}>
+          <p>{Attachment?.AttachmentFiles.data?.containers[0].size_type} </p>
+          <img src={`${shipImg}`} alt="" />
+        </div>
+        <p className={styles.ETA}>
+          ETA
+          <span>
+            {Attachment?.AttachmentFiles.data?.route?.pod?.date
+              ? moment(
+                  Attachment?.AttachmentFiles.data?.route?.pod?.date
+                ).format("D MMM YYYY")
+              : ""}
+          </span>
+        </p>
+      </div>
+
+      {/* <div>
+        <p>
+          Timeline <span>hjdhjdjjksjfh</span>
+        </p>
+      </div> */}
       {events && (
         <Timeline
           value={events ? Object.entries(events) : []}

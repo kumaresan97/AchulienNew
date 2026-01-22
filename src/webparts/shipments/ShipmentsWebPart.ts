@@ -13,23 +13,28 @@ import Shipments from "./components/Shipments";
 import { IShipmentsProps } from "./components/IShipmentsProps";
 
 // import { SPComponentLoader } from "@microsoft/sp-loader";
+// require("../../../node_modules/primereact/resources/primereact.min.css");
+
+import { SPComponentLoader } from "@microsoft/sp-loader";
+
 require("../../../node_modules/primereact/resources/primereact.min.css");
+require("../../../node_modules/primeflex/primeflex.css");
 
 export interface IShipmentsWebPartProps {
   description: string;
 }
 
 export default class ShipmentsWebPart extends BaseClientSideWebPart<IShipmentsWebPartProps> {
-  // public constructor() {
-  //   super();
-  //   SPComponentLoader.loadCss(
-  //     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  //   );
-  //   SPComponentLoader.loadCss(
-  //     "https://fonts.googleapis.com/css2?family=Lato&display=swap"
-  //   );
-  //   SPComponentLoader.loadCss("https://unpkg.com/primeicons/primeicons.css");
-  // }
+  public constructor() {
+    super();
+    SPComponentLoader.loadCss(
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    );
+    SPComponentLoader.loadCss(
+      "https://fonts.googleapis.com/css2?family=Lato&display=swap"
+    );
+    SPComponentLoader.loadCss("https://unpkg.com/primeicons/primeicons.css");
+  }
   private _isDarkTheme: boolean = false;
   private _environmentMessage: string = "";
 

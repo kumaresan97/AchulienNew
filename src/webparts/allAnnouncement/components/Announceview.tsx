@@ -11,13 +11,15 @@ import { Config } from "../../Global/Config";
 import { Dialog } from "primereact/dialog";
 
 const img = require("../../Global/Images/Leftarrow.svg");
-const copyImg = require("../../Global/Images/files.png");
+const copyImg = require("../../Global/Images/copyicon.png");
+const checkImg = require("../../Global/Images/checkicon.png");
 const AnnouncementView = () => {
   const [ispopup, setIspopup] = React.useState<boolean>(false);
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
   const [selectItem, setSelectItem] = React.useState<any>(null);
+  const [copyitem, selectCopyItem] = React.useState("Copy");
 
   const fetchImageDetailsById = async (id: any) => {
     try {
@@ -44,15 +46,37 @@ const AnnouncementView = () => {
 
   const copyUrlToClipboard = () => {
     const currentUrl = window.location.href;
-    navigator.clipboard.writeText(currentUrl).then(
-      () => {
-        alert("URL copied to clipboard!");
-      },
-      (err) => {
-        console.error("Could not copy text: ", err);
-      }
-    );
+    try {
+      navigator.clipboard.writeText(currentUrl).then(
+        () => {
+          // alert("URL copied to clipboard!");
+          selectCopyItem("Copied !");
+
+          setTimeout(() => {
+            selectCopyItem("Copy");
+          }, 4000);
+        },
+        (err) => {
+          console.error("Could not copy text: ", err);
+          // alert("URL Not copied!");
+        }
+      );
+    } catch {
+      // alert("URL Not copied!");
+    }
   };
+
+  // const copyUrlToClipboard = () => {
+  //   const currentUrl = window.location.href;
+  //   navigator.clipboard.writeText(currentUrl).then(
+  //     () => {
+  //       alert("URL copied to clipboard!");
+  //     },
+  //     (err) => {
+  //       console.error("Could not copy text: ", err);
+  //     }
+  //   );
+  // };
 
   React.useEffect(() => {
     const fetchAndShowPopup = async () => {
@@ -88,7 +112,7 @@ const AnnouncementView = () => {
               }}
             />
 
-            <img
+            {/* <img
               src={`${copyImg}`}
               alt=""
               title={"copy"}
@@ -96,7 +120,40 @@ const AnnouncementView = () => {
                 copyUrlToClipboard();
                 // setIspopup(false);
               }}
-            />
+            /> */}
+
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 5,
+                cursor: "pointer",
+                background: "#ff1721",
+                borderRadius: "4px",
+                padding: "6px 16px",
+              }}
+              onClick={() => {
+                copyUrlToClipboard();
+              }}
+            >
+              {/* <i className="pi pi-check"></i> */}
+
+              <img
+                src={`${copyitem == "Copy" ? copyImg : checkImg}`}
+                alt=""
+                style={{ width: "16px", height: "16px" }}
+                title={"copy"}
+                onClick={() => {
+                  copyUrlToClipboard();
+                  // setIspopup(false);
+                }}
+              />
+              <span
+                style={{ fontSize: "14px", color: "#fff", fontWeight: 600 }}
+              >
+                {copyitem}
+              </span>
+            </div>
           </div>
 
           <div className={styles.imagetitlecontainer}>

@@ -72,7 +72,7 @@ const MainComponent = (props: any): JSX.Element => {
 
       // const _isAdmin = await isCurrentUserIsadmin("Achaulien Owners"); // Replace with your admin group name
       // const _isAdmin = await isCurrentUserIsadmin("Ägare av Intranet Dev");
-      const _isAdmin = await isCurrentUserIsadmin("aclhub Owners");
+      const _isAdmin = await isCurrentUserIsadmin(Config.ListNames.ProdAdmin);
 
       setIsadmin(_isAdmin);
     };

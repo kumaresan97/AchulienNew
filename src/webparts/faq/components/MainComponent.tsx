@@ -151,7 +151,7 @@ const MainComponent = (props: any) => {
       // let _isAdmin = await isCurrentUserIsadmin("Achaulien Owners");
       // const _isAdmin = await isCurrentUserIsadmin("Ägare av Intranet Dev");
 
-      const _isAdmin = await isCurrentUserIsadmin("aclhub Owners");
+      const _isAdmin = await isCurrentUserIsadmin(Config.ListNames.ProdAdmin);
 
       setIsadmin(_isAdmin);
     };

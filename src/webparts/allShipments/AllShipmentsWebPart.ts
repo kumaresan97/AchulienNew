@@ -8,33 +8,35 @@ import {
 import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
 import { IReadonlyTheme } from "@microsoft/sp-component-base";
 
-import * as strings from "AnnouncementWebPartStrings";
-import Announcement from "./components/Announcement";
-import { IAnnouncementProps } from "./components/IAnnouncementProps";
-// import { SPComponentLoader } from "@microsoft/sp-loader";
-require("../../../node_modules/primereact/resources/primereact.min.css");
+import * as strings from "AllShipmentsWebPartStrings";
+import AllShipments from "./components/AllShipments";
+import { IAllShipmentsProps } from "./components/IAllShipmentsProps";
+import { SPComponentLoader } from "@microsoft/sp-loader";
 
-export interface IAnnouncementWebPartProps {
+require("../../../node_modules/primereact/resources/primereact.min.css");
+require("../../../node_modules/primeflex/primeflex.css");
+
+export interface IAllShipmentsWebPartProps {
   description: string;
 }
 
-export default class AnnouncementWebPart extends BaseClientSideWebPart<IAnnouncementWebPartProps> {
-  // public constructor() {
-  //   super();
-  //   SPComponentLoader.loadCss(
-  //     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  //   );
-  //   SPComponentLoader.loadCss(
-  //     "https://fonts.googleapis.com/css2?family=Lato&display=swap"
-  //   );
-  //   SPComponentLoader.loadCss("https://unpkg.com/primeicons/primeicons.css");
-  // }
+export default class AllShipmentsWebPart extends BaseClientSideWebPart<IAllShipmentsWebPartProps> {
+  public constructor() {
+    super();
+    SPComponentLoader.loadCss(
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    );
+    SPComponentLoader.loadCss(
+      "https://fonts.googleapis.com/css2?family=Lato&display=swap"
+    );
+    SPComponentLoader.loadCss("https://unpkg.com/primeicons/primeicons.css");
+  }
   private _isDarkTheme: boolean = false;
   private _environmentMessage: string = "";
 
   public render(): void {
-    const element: React.ReactElement<IAnnouncementProps> = React.createElement(
-      Announcement,
+    const element: React.ReactElement<IAllShipmentsProps> = React.createElement(
+      AllShipments,
       {
         description: this.properties.description,
         isDarkTheme: this._isDarkTheme,
@@ -49,14 +51,6 @@ export default class AnnouncementWebPart extends BaseClientSideWebPart<IAnnounce
   }
 
   protected onInit(): Promise<void> {
-    // SPComponentLoader.loadCss(
-    //   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    // );
-    // SPComponentLoader.loadCss(
-    //   "https://fonts.googleapis.com/css2?family=Lato&display=swap"
-    // );
-    // SPComponentLoader.loadCss("https://unpkg.com/primeicons/primeicons.css");
-
     return this._getEnvironmentMessage().then((message) => {
       this._environmentMessage = message;
     });
