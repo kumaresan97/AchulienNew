@@ -1,3 +1,8 @@
+
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import * as React from "react";
 import { Carousel } from "primereact/carousel";
 import "../../Global/Style.css";
@@ -64,15 +69,13 @@ const MainComponent = (props: any) => {
 
   useEffect(() => {
     const fetchFiles = async () => {
-      debugger;
       await sp.web
         .getFolderByServerRelativePath(Config.ListNames.CarouseelLink)
         .files.select("*,ListItemAllFields")
         .expand("ListItemAllFields")
         .get()
         .then(async (res: any) => {
-          console.log(res, "res");
-          debugger;
+
 
           let img: any[] = [];
           img = res
@@ -92,7 +95,9 @@ const MainComponent = (props: any) => {
           // let _isAdmin = await isCurrentUserIsadmin("Achaulien Owners");
 
           // const _isAdmin = await isCurrentUserIsadmin("Ägare av Intranet Dev");
-          const _isAdmin = await isCurrentUserIsadmin("aclhub Owners");
+          const _isAdmin = await isCurrentUserIsadmin(
+            Config.ListNames.ProdAdmin
+          );
 
           setIsadmin(_isAdmin);
         })

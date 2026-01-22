@@ -65,6 +65,14 @@
           "manifest": "./src/webparts/announcementView/AnnouncementViewWebPart.manifest.json"
         }
       ]
+    },
+    "all-shipments-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/allShipments/AllShipmentsWebPart.js",
+          "manifest": "./src/webparts/allShipments/AllShipmentsWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -76,6 +84,7 @@
     "ShipmentsWebPartStrings": "lib/webparts/shipments/loc/{locale}.js",
     "AllAnnouncementWebPartStrings": "lib/webparts/allAnnouncement/loc/{locale}.js",
     "FooterWebPartStrings": "lib/webparts/footer/loc/{locale}.js",
-    "AnnouncementViewWebPartStrings": "lib/webparts/announcementView/loc/{locale}.js"
+    "AnnouncementViewWebPartStrings": "lib/webparts/announcementView/loc/{locale}.js",
+    "AllShipmentsWebPartStrings": "lib/webparts/allShipments/loc/{locale}.js"
   }
 }

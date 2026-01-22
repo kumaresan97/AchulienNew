@@ -97,7 +97,7 @@ const MainComponent = (props: MainComponentProps): JSX.Element => {
 
       // const _isAdmin = await isCurrentUserIsadmin("Achaulien Owners");
       // const _isAdmin = await isCurrentUserIsadmin("Ägare av Intranet Dev");
-      const _isAdmin = await isCurrentUserIsadmin("aclhub Owners");
+      const _isAdmin = await isCurrentUserIsadmin(Config.ListNames.ProdAdmin);
       setIsadmin(_isAdmin);
     };
     checkAdminStatus();
@@ -146,7 +146,7 @@ const MainComponent = (props: MainComponentProps): JSX.Element => {
             )}
           </div>
         </div>
-        {announcements.length ? (
+        {announcements?.length ? (
           <div className={styles.imgContainer}>
             <div className={styles.imgwrapper}>
               {announcements.map((val: Announcement, index: number) => (

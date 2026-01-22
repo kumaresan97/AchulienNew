@@ -5,49 +5,44 @@
   gap: 10px;
   padding: 10px 20px;
 
-  .calenderSection {
-    width: 40%;
-    .calendarContainer {
-      // width: 420px;
-      border-radius: 6px;
-      box-shadow: 9.49px 3.56px 26.08px 11.86px rgba(150, 150, 150, 0.11);
-    }
-    .ETATitle {
-      border-left: 4px solid #ff1721;
-      padding: 10px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #3a3e43;
-      margin-bottom: 20px;
-    }
-  }
+  // .calenderSection {
+  //   width: 40%;
+  //   .calendarContainer {
+  //     // width: 420px;
+  //     border-radius: 6px;
+  //     box-shadow: 9.49px 3.56px 26.08px 11.86px rgba(150, 150, 150, 0.11);
+  //   }
+  //   .ETATitle {
+  //     border-left: 4px solid #ff1721;
+  //     padding: 10px;
+  //     font-size: 16px;
+  //     font-weight: 600;
+  //     color: #3a3e43;
+  //     margin-bottom: 20px;
+  //   }
+  // }
 
   .loadingStyle {
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: center;
     height: 70vh;
   }
   .shipmentSection {
-    width: 60%;
+    width: 100%;
 
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px;
+      margin-bottom: 10px;
       border-left: 4px solid #ff1721;
       .selectShipData {
         display: flex;
         align-items: center;
         gap: 10px;
-        cursor: pointer;
-
-        &.hoverunderline:hover {
-          cursor: pointer;
-          text-decoration: underline;
-          text-decoration-color: #ff1721;
-        }
         p {
           margin: 0;
           font-size: 16px;
@@ -65,9 +60,15 @@
         img {
           cursor: pointer;
         }
+
+        .StatusContainer {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
         .searchField {
           width: 200px;
-          padding: 5px 30px;
+          padding: 6px 30px;
           background: #f5f7fa;
           border: 1px solid #f5f7fa;
         }
@@ -83,15 +84,24 @@
     }
 
     .contentSection {
-      margin: 10px 0px 0px 0px;
-      max-height: 386px;
-      overflow-y: auto;
-
+      // margin: 10px 0px 0px 0px;
+      // max-height: 386px;
+      // overflow-y: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      width: 100%;
+      // width: calc(100% - 15px);
+      .shipmentboxContainer {
+        width: calc(50% - 10px);
+      }
       .contentBox {
+        width: 100%;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        min-height: 165px;
         padding: 15px;
         border-left: 5px solid #ff1721;
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
         .ContentContainer {
           display: flex;
           gap: 15px;
@@ -313,6 +323,67 @@
         }
       }
     }
+    .timelineContentSection {
+      // width: 100%;
+      margin: 15px 0px 20px 30px;
+      .purchaseOrderList {
+        max-height: calc(3 * 1.5em);
+        overflow-y: auto;
+
+        .purchaseOrderRow {
+          margin-bottom: 4px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 300px;
+          span {
+            color: #8a8a8a;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.59;
+          }
+        }
+      }
+      // .containerName {
+      //   margin: 0px 0px 5px 0px;
+      //   color: #8a8a8a;
+      //   font-weight: 600;
+      //   font-size: 14px;
+      //   letter-spacing: 0.59;
+      // font-family: interRegular,sans-serif;
+      .containerNumber {
+        color: #ff1721;
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: 0.59;
+      }
+      // }
+      .containersizeContainer {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        p {
+          margin: 0;
+          color: #3a3e43;
+          font-weight: 600;
+          font-size: 16px;
+        }
+      }
+      .ETA {
+        color: #ff1721;
+
+        margin: 10px 0px 0px 0px;
+        font-weight: 500;
+        font-size: 14px;
+        span {
+          color: #3a3e43;
+
+          margin-left: 6px;
+        }
+      }
+    }
+
     .customizedMarkerspan {
       width: 16px;
       height: 16px;
@@ -357,13 +428,34 @@
     .shipmentSection {
       width: 100%;
       .header {
+        // position: relative;
         display: block;
         .headerSection {
           justify-content: end;
           margin-top: 15px;
+
+          // .StatusContainer {
+          //   position: absolute;
+          //   top: 20%;
+          //   left: 0;
+          //   bottom: 0;
+          // }
+
+          .searchsection {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+          }
+          .searchField {
+            width: 185px;
+          }
         }
       }
       .contentSection {
+        .shipmentboxContainer {
+          width: 100%;
+        }
         .contentBox {
           .ContentContainer {
             display: block;

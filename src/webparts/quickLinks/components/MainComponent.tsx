@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import * as React from "react";
 // import "./Style.css";
 import "primereact/resources/themes/saga-blue/theme.css";
@@ -23,7 +27,6 @@ const MainComponent = (props: any) => {
   let values = props.context.pageContext.web.absoluteUrl;
   const displayedData = isMobile ? data.slice(0, 4) : data;
 
-  console.log();
   let tempArr = [];
   const getItems = async () => {
     await sp.web.lists
@@ -35,7 +38,6 @@ const MainComponent = (props: any) => {
           Title: val.Title,
           Imgurl: val.Icon ? JSON.parse(val.Icon)?.serverRelativeUrl : "",
         }));
-        debugger;
         await setData([...tempArr]);
       })
       .catch((err) => {
@@ -50,7 +52,7 @@ const MainComponent = (props: any) => {
     const checkAdminStatus = async () => {
       await getItems(); // Assuming getAnnouncement is defined somewhere in your code
       // const _isAdmin = await isCurrentUserIsadmin("Ägare av Intranet Dev");
-      const _isAdmin = await isCurrentUserIsadmin("aclhub Owners");
+      const _isAdmin = await isCurrentUserIsadmin(Config.ListNames.ProdAdmin);
 
       // const _isAdmin = await isCurrentUserIsadmin("Achaulien Owners"); // Replace with your admin group name
       setIsadmin(_isAdmin);
